@@ -1,4 +1,4 @@
-package com.example.android.androidfundamentals_helloconstraint;
+package com.example.android.androidfundamentals_activitylifecycle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;

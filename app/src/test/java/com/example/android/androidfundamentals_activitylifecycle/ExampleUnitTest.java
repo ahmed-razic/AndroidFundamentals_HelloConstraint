@@ -1,4 +1,4 @@
-package com.example.android.androidfundamentals_helloconstraint;
+package com.example.android.androidfundamentals_activitylifecycle;
 
 import org.junit.Test;
 

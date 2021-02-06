@@ -8,4 +8,6 @@
     <string name="hello_button">Hello</string>
     <string name="enter_your_name">Enter your Name</string>
     <string name="sample_text">Sample Text</string>
+    <string name="even_number">Even number</string>
+    <string name="even_number_saved">Even Number</string>
 </resources>

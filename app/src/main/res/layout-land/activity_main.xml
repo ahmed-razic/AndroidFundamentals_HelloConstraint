@@ -76,7 +76,8 @@
         android:ems="10"
         android:hint="@string/enter_your_name"
         android:inputType="textPersonName"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/sample_textView"
@@ -91,7 +92,8 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        tools:text="Odd/Even Number" />
+        tools:text="Odd/Even Number"
+        tools:visibility="invisible"/>
 
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.android.androidfundamentals_activitylifecycle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -13,23 +14,32 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private int mCount;
     private TextView mShowCount;
     private Button mZeroButton;
     private Button mCountButton;
-
+    private TextView mSampleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(LOG_TAG, "--------");
-        Log.d(LOG_TAG, "onCreate()");
 
         mShowCount = findViewById(R.id.textView_count);
         mZeroButton = findViewById(R.id.button_zero);
         mCountButton = findViewById(R.id.button_count);
+        mSampleText = findViewById(R.id.sample_textView);
+
+        if (savedInstanceState != null) {
+            // Restore value of members from saved state.
+            mCount = savedInstanceState.getInt("count");
+            mShowCount.setText(String.valueOf(mCount));
+            if(savedInstanceState.getBoolean("visible")){
+                mSampleText.setVisibility(View.VISIBLE);
+                mSampleText.setText(savedInstanceState.getString("sample_text"));
+            };
+        }
     }
 
     public void showHello(View view) {
@@ -42,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public void resetToZero(View view) {
         mCount = 0;
         mShowCount.setText(String.valueOf(mCount));
+        mSampleText.setText("");
 
         view.setBackgroundColor(ContextCompat.getColor(this, R.color.gray));
         mCountButton.setBackgroundColor(ContextCompat.getColor(this, R.color.blue));
@@ -54,49 +65,26 @@ public class MainActivity extends AppCompatActivity {
 
         if ( mCount % 2 == 0 ) {
             view.setBackgroundColor(ContextCompat.getColor(this, R.color.blue));
+            if (mSampleText.getVisibility() == View.INVISIBLE) {
+                mSampleText.setVisibility(View.VISIBLE);
+                mSampleText.setText(R.string.even_number);
+            }
+
         } else {
             view.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+            mSampleText.setVisibility(View.INVISIBLE);
         }
         mZeroButton.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
     }
 
-    public void showSampleTest(){
-
-    }
-
     @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(LOG_TAG, "onStart()");
-    }
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(LOG_TAG, "onResume()");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(LOG_TAG, "onPause()");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(LOG_TAG, "onStop()");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(LOG_TAG, "onRestart()");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(LOG_TAG, "onDestroy()");
+        savedInstanceState.putInt("count", mCount);
+        if(mSampleText.getVisibility() == View.VISIBLE) {
+            savedInstanceState.putBoolean("visible", true);
+            savedInstanceState.putString("sample_text", (String) mSampleText.getText());
+        }
     }
 }

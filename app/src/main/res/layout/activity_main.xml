@@ -92,7 +92,8 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        tools:text="Odd/Even Number" />
+        tools:text="Odd/Even Number"
+        tools:visibility="invisible" />
 
 
 </RelativeLayout>

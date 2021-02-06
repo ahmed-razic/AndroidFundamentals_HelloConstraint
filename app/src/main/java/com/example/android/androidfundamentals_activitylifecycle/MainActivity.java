@@ -60,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
         mZeroButton.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
     }
 
+    public void showSampleTest(){
+
+    }
+
     @Override
     protected void onStart() {
         super.onStart();

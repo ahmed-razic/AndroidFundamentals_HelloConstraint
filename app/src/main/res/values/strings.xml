@@ -6,4 +6,6 @@
     <string name="_0">0</string>
     <string name="hello">Hello!</string>
     <string name="hello_button">Hello</string>
+    <string name="enter_your_name">Enter your Name</string>
+    <string name="sample_text">Sample Text</string>
 </resources>

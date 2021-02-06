@@ -4,4 +4,6 @@
     <string name="zero">Zero</string>
     <string name="count">Count</string>
     <string name="_0">0</string>
+    <string name="hello">Hello!</string>
+    <string name="hello_button">Hello</string>
 </resources>

@@ -13,8 +13,8 @@
         android:layout_margin="8dp"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:text="@string/toast"
-        android:onClick="showToast"/>
+        android:text="@string/hello_button"
+        android:onClick="showHello"/>
 
     <Button
         android:id="@+id/button_zero"
